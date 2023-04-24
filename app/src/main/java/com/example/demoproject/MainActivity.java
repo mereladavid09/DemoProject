@@ -10,17 +10,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
-import android.security.keystore.StrongBoxUnavailableException;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle toggle;
     private Toolbar toolbar;
     private NavigationView navigationView;
     @Override
@@ -42,13 +40,23 @@ public class MainActivity extends AppCompatActivity {
                 this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
 
     }
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (toggle.onOptionsItemSelected(item)) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.Users) {
+            Toast.makeText(this, "Users selected from menu", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (itemId == R.id.Charts) {
+            Toast.makeText(this, "Charts selected from menu", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (itemId == R.id.Products) {
+            Toast.makeText(this, "Products selected from menu", Toast.LENGTH_SHORT).show();
             return true;
         }
-        return super.onOptionsItemSelected(item);
+        return false;
     }
+
 }
