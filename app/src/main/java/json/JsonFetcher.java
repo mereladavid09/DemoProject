@@ -67,7 +67,7 @@ public class JsonFetcher extends AsyncTask<String, Void, List> {
          JsonObject jsonObject = gson.fromJson(json, JsonObject.class);
 
          JsonArray jsonArray = jsonObject.getAsJsonArray("products");
-         
+
          Type productListType = new TypeToken<List<Product>>() {
          }.getType();
          List<Product> productList = gson.fromJson(jsonArray, productListType);
