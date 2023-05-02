@@ -2,4 +2,6 @@
     <string name="app_name">Demo Project</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="search_bar">Search Bar</string>
+
 </resources>
