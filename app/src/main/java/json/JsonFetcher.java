@@ -11,11 +11,17 @@ import models.Cart;
 import models.Product;
 import models.user.User;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class JsonFetcher extends AsyncTask<String, Void, List> {
 
@@ -23,20 +29,78 @@ public class JsonFetcher extends AsyncTask<String, Void, List> {
    protected List doInBackground(String... strings) {
       String url = strings[0];
       String type = strings[1];
+      String jsonString = fetchDataFromUrl(url);
       switch (type) {
          case "Products":
-            String jsonProduct = fetchDataFromUrl(url);
-            Log.d("FETCHING Products", jsonProduct);
-            return parseProductsFromJson(jsonProduct);
+            Log.d("FETCHING Products", jsonString);
+            return parseProductsFromJson(jsonString);
          case "Users":
-            String jsonUser = fetchDataFromUrl(url);
-            Log.d("FETCHING USERS", jsonUser);
-            return parseUsersFromJson(jsonUser);
+            Log.d("FETCHING USERS", jsonString);
+            return parseUsersFromJson(jsonString);
          case "Carts":
-            String jsonChart = fetchDataFromUrl(url);
-            Log.d("FETCHING CHARTS", jsonChart);
-            return parseCartsFromJson(jsonChart);
+            Log.d("FETCHING CHARTS", jsonString);
+            return parseCartsFromJson(jsonString);
+         case "Categories":
+            Log.d("FETCHING CATEGORIES", jsonString.replace("[","").replace("]",""));
+            return parseCategoriesFromJson(jsonString);
+         case "Electronics":
+            List<Product> electronics = new ArrayList<>();
+            String urlSmartphones = url + "smartphones";
+            String urlLaptops = url + "laptops";
+            String jsonSmartphonesString = fetchDataFromUrl(urlSmartphones);
+            String jsonLaptopsString = fetchDataFromUrl(urlLaptops);
 
+            electronics.addAll(parseProductsFromJson(jsonSmartphonesString));
+            electronics.addAll(parseProductsFromJson(jsonLaptopsString));
+
+            return electronics;
+
+         case "Groceries":
+            String urlGroceries = url +"groceries";
+            return parseProductsFromJson(fetchDataFromUrl(urlGroceries));
+
+         case "Beauty":
+            List<Product> beauty = new ArrayList<>();
+            String urlSkincare = url + "skincare";
+            String urlFragrances = url + "fragrances";
+
+            beauty.addAll(parseProductsFromJson(fetchDataFromUrl(urlSkincare)));
+            beauty.addAll(parseProductsFromJson(fetchDataFromUrl(urlFragrances)));
+
+            return beauty;
+
+         case "Home":
+            List<Product> home = new ArrayList<>();
+
+            String urlDecorations = url + "home-decoration";
+            String urlFurniture = url + "furniture";
+            String urlLighting = url + "lighting";
+
+            home.addAll(parseProductsFromJson(fetchDataFromUrl(urlDecorations)));
+            home.addAll(parseProductsFromJson(fetchDataFromUrl(urlFurniture)));
+            home.addAll(parseProductsFromJson(fetchDataFromUrl(urlLighting)));
+
+            return home;
+
+         case "Clothing":
+            List<Product> clothing = new ArrayList<>();
+            String[] clothingArray = new String []{"tops","womens-dresses","womens-shoes","mens-shirts","mens-shoes","mens-watches","womens-watches","womens-bags","womens-jewellery","sunglasses"};
+
+            for (String category: clothingArray) {
+               clothing.addAll(parseProductsFromJson(fetchDataFromUrl(url+category)));
+            }
+
+            return clothing;
+
+         case "AutoMoto":
+            List<Product> autoMoto = new ArrayList<>();
+            String urlMotorcycle = url+"motorcycle";
+            String urlAutomotive = url+"automotive";
+
+            autoMoto.addAll(parseProductsFromJson(fetchDataFromUrl(urlMotorcycle)));
+            autoMoto.addAll(parseProductsFromJson(fetchDataFromUrl(urlAutomotive)));
+
+            return autoMoto;
       }
       return null;
    }
@@ -61,6 +125,11 @@ public class JsonFetcher extends AsyncTask<String, Void, List> {
       return getJsonText;
    }
 
+   private List<String> parseCategoriesFromJson(String json){
+      List<String> categories = new ArrayList<>();
+      categories.addAll(Arrays.asList(json.split(",")));
+      return categories;
+   }
    private List<Product> parseProductsFromJson(String json) {
       try {
          Gson gson = new Gson();

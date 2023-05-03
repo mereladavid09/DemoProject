@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/all_products"
+        android:title="All products"
+        android:icon="@drawable/all"
+         />
+    <item
+        android:id="@+id/electronics"
+        android:title="Electronics"
+        android:icon="@drawable/computer"/>
+    <item
+        android:id="@+id/groceries"
+        android:title="Groceries"
+        android:icon="@drawable/food"/>
+    <item
+        android:id="@+id/beauty"
+        android:title="Beauty"
+        android:icon="@drawable/beauty"/>
+    <item
+        android:id="@+id/clothing"
+        android:title="Clothing"
+        android:icon="@drawable/clothing"/>
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home"/>
+    <item
+        android:id="@+id/autoMoto"
+        android:title="AutoMoto"
+        android:icon="@drawable/car"
+        />
+    <item
+        android:id="@+id/back"
+        android:title="back" />
+
+</menu>

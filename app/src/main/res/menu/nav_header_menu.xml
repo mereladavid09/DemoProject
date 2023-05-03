@@ -5,12 +5,14 @@
         android:title="Users"
         android:icon="@drawable/users" />
     <item
-        android:id="@+id/Charts"
-        android:title="Charts"
-        android:icon="@drawable/charts"/>
+        android:id="@+id/Carts"
+        android:title="Carts"
+        android:icon="@drawable/shopping_cart"
+        android:visible="true"/>
     <item
         android:id="@+id/Products"
         android:title="Products"
-        android:icon="@drawable/products"/>
+        android:icon="@drawable/products">
+        </item>
 
 </menu>

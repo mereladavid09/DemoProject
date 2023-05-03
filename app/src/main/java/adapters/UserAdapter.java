@@ -3,25 +3,69 @@ package adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.demoproject.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import models.Product;
 import models.user.User;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     private List<User> userList;
+    private List<User> filteredUserList;
+
+    private SearchView searchView;
 
     public UserAdapter(List<User> userList) {
         this.userList = userList;
+        this.filteredUserList = new ArrayList<>();
+
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
+
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String query = constraint.toString();
+                if (query.isEmpty()) {
+                    filteredUserList = userList;
+                } else {
+                    List<User> filteredList = new ArrayList<>();
+                    for (User user : userList) {
+                        if ((user.getFirstName() + " " + user.getLastName()).toLowerCase().contains(query.toLowerCase())) {
+                            filteredList.add(user);
+                        }
+                    }
+                    filteredUserList = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filteredUserList;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                filteredUserList = (List<User>) results.values;
+                userList = filteredUserList;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
