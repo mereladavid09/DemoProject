@@ -131,6 +131,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 List<User> users = jsonFetcher.execute(ALL_USERS,"Users").get();
                 userAdapter = new UserAdapter(users);
                 recyclerView.setAdapter(userAdapter);
+
+                navigationView.getMenu().clear();
+                navigationView.inflateMenu(R.menu.nav_user_menu);
+
                 return true;
 
             } else if (itemId == R.id.Carts) {
@@ -201,6 +205,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
             else if (itemId == R.id.back) {
+                navigationView.getMenu().clear();
+                navigationView.inflateMenu(R.menu.nav_header_menu);
+                return true;
+            }
+            else if (itemId == R.id.back_users) {
                 navigationView.getMenu().clear();
                 navigationView.inflateMenu(R.menu.nav_header_menu);
                 return true;

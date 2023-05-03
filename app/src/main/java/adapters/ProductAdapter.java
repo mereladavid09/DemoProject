@@ -118,16 +118,5 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         return productList.size();
     }
 
-    public void filterProducts(String query) {
-        List<Product> filteredList = new ArrayList<>();
-        for (Product product : productList) {
-            if (product.getTitle().toLowerCase().contains(query.toLowerCase())) {
-                filteredList.add(product);
-            }
-        }
-        productList = filteredList;
-        notifyDataSetChanged();
-    }
-
 }
 
