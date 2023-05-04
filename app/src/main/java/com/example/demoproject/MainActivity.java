@@ -17,6 +17,7 @@ import models.Cart;
 import models.Product;
 import models.user.User;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -126,7 +127,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
         try {
-            if (itemId == R.id.Users) {
+
+         if (itemId == R.id.Users) {
                 JsonFetcher jsonFetcher = new JsonFetcher();
                 List<User> users = jsonFetcher.execute(ALL_USERS,"Users").get();
                 userAdapter = new UserAdapter(users);
@@ -212,6 +214,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             else if (itemId == R.id.back_users) {
                 navigationView.getMenu().clear();
                 navigationView.inflateMenu(R.menu.nav_header_menu);
+                return true;
+            }
+
+            else if (itemId == R.id.create_user) {
+                Intent intent = new Intent(this, CreateUserActivity.class);
+                startActivity(intent);
                 return true;
             }
 

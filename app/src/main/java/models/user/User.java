@@ -59,6 +59,16 @@ public class User {
         this.userAgent = userAgent;
     }
 
+    public User(String firstName, String lastName, int age, String gender, String email, String phone, String username) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.gender = gender;
+        this.email = email;
+        this.phone = phone;
+        this.username = username;
+    }
+
     public int getId() {
         return id;
     }
