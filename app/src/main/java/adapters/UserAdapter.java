@@ -1,5 +1,6 @@
 package adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.demoproject.ProductViewActivity;
 import com.example.demoproject.R;
+import com.example.demoproject.UserViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,7 +101,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         holder.userImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext() , user.getFirstName() +" " + user.getLastName() + " is selected", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(view.getContext(), UserViewActivity.class);
+                intent.putExtra("USER_KEY",user);
+                view.getContext().startActivity(intent);
             }
         });
     }

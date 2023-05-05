@@ -37,6 +37,10 @@
             android:name=".UpdateProductActivity"
             android:label="Update Product">
         </activity>
+        <activity
+            android:name=".UserViewActivity"
+            android:label="User View">
+        </activity>
     </application>
 
 </manifest>

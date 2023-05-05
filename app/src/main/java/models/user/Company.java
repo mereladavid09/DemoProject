@@ -1,6 +1,8 @@
 package models.user;
 
-public class Company {
+import java.io.Serializable;
+
+public class Company implements Serializable  {
    private Address address;
    private String department;
    private String name;

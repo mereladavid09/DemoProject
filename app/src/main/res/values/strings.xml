@@ -6,5 +6,6 @@
     <string name="description">Description</string>
     <string name="product_image">Product Image</string>
     <string name="update_product">Update Product</string>
+    <string name="update_user">Update User</string>
 
 </resources>

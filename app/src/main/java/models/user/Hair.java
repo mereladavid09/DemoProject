@@ -1,6 +1,8 @@
 package models.user;
 
-public class Hair {
+import java.io.Serializable;
+
+public class Hair implements Serializable {
     private String color;
     private String type;
 

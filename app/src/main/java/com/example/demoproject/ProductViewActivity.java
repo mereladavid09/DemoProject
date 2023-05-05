@@ -1,7 +1,5 @@
 package com.example.demoproject;
 
-
-
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -19,17 +17,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.squareup.picasso.Picasso;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import json.JsonDeleteProduct;
 import models.Product;
-import imagewriter.ImageWriter;
+
 
 
 public class ProductViewActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {

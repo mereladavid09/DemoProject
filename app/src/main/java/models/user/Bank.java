@@ -1,6 +1,8 @@
 package models.user;
 
-public class Bank {
+import java.io.Serializable;
+
+public class Bank implements Serializable {
     private String cardExpire;
     private String cardnumber;
     private String cardType;
