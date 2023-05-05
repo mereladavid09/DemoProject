@@ -10,28 +10,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import json.JsonFetcher;
 import models.Cart;
 import models.Product;
 import models.user.User;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SubMenu;
-import android.widget.ImageView;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.SearchView;
-import android.widget.Toast;
-
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.search.SearchBar;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener {
@@ -64,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         this.recyclerView = findViewById(R.id.recyclerView);
         this.searchView = findViewById(R.id.searchBar);
 
+
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
 
         setSupportActionBar(toolbar);
@@ -79,6 +74,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         searchView.setOnQueryTextListener(this);
+
+        //SET DEFAULT ADAPTER
+        try {
+            JsonFetcher jsonFetcher = new JsonFetcher();
+            List<User> users = jsonFetcher.execute(ALL_USERS,"Users").get();
+            recyclerView.setAdapter(new UserAdapter(users));
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

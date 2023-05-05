@@ -7,5 +7,10 @@
     <string name="product_image">Product Image</string>
     <string name="update_product">Update Product</string>
     <string name="update_user">Update User</string>
+    <string name="stock">Stock</string>
+    <string name="price">Price</string>
+    <string name="new_price">Enter new price</string>
+    <string name="new_stock">Enter new stock</string>
+
 
 </resources>

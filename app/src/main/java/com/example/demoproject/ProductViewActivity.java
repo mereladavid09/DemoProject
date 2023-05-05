@@ -75,13 +75,15 @@ public class ProductViewActivity extends AppCompatActivity implements GestureDet
             Intent intent = new Intent(this,UpdateProductActivity.class);
             intent.putExtra("PRODUCT_KEY",product);
             startActivity(intent);
-            Toast.makeText(view.getContext(), "UPDATE PRESS", Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(), "PRODUCT UPDATE", Toast.LENGTH_SHORT).show();
+            finish();
         });
 
         deleteImageView.setOnClickListener(view -> {
             JsonDeleteProduct jsonDeleteProduct = new JsonDeleteProduct();
             jsonDeleteProduct.execute(product);
-            Toast.makeText(view.getContext(), "DELETE PRESS", Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(), "PRODUCT DELETED", Toast.LENGTH_SHORT).show();
+            finish();
         });
 
     }

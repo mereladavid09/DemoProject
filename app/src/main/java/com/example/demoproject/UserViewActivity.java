@@ -10,7 +10,6 @@ import com.squareup.picasso.Picasso;
 
 import androidx.appcompat.app.AppCompatActivity;
 import json.JsonDeleteUser;
-import models.Product;
 import models.user.User;
 
 

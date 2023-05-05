@@ -16,9 +16,9 @@
 
         <android.widget.SearchView
             android:id="@+id/searchBar"
-            android:layout_width="354dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="383dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="4dp"
             android:background="#F4F2F2"
             android:contentDescription="@string/search_bar"
             android:enabled="true"
@@ -41,34 +41,24 @@
             app:title="@string/app_name" />
 
 
-        <FrameLayout
-            android:id="@+id/FrameLayout"
-            android:layout_width="393dp"
-            android:layout_height="615dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="#DAD7D7"
+            android:clipToPadding="false"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="10dp"
+            android:visibility="visible"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchBar"
-            app:layout_constraintVertical_bias="0.775">
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="392dp"
-                android:layout_height="617dp"
-                android:backgroundTint="#DAD7D7"
-                android:clipToPadding="false"
-                android:visibility="visible"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:spanCount="2" />
-
-        </FrameLayout>
-
+            app:layout_constraintVertical_bias="0.226"
+            app:spanCount="2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

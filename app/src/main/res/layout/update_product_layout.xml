@@ -3,16 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A8D8F1"
     android:orientation="vertical">
 
 
     <EditText
         android:id="@+id/priceEditText"
+        android:inputType="text"
         android:layout_width="234dp"
         android:layout_height="48dp"
         android:layout_marginTop="80dp"
-        android:hint="price"
+        android:hint="@string/price"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,10 +20,11 @@
 
     <EditText
         android:id="@+id/descriptionEditText"
-        android:layout_width="377dp"
-        android:layout_height="60dp"
+        android:layout_width="356dp"
+        android:layout_height="121dp"
         android:layout_marginTop="60dp"
-        android:hint="description"
+        android:hint="@string/description"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,10 +32,11 @@
 
     <EditText
         android:id="@+id/stockEditText"
+        android:inputType="text"
         android:layout_width="234dp"
         android:layout_height="48dp"
         android:layout_marginTop="56dp"
-        android:hint="stock"
+        android:hint="@string/stock"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,14 +58,36 @@
         android:id="@+id/updateText"
         android:layout_width="157dp"
         android:layout_height="33dp"
-        android:layout_marginTop="108dp"
-        android:text="Update"
-        android:textColor="@color/white"
+        android:layout_marginTop="80dp"
+        android:text="@string/update_product"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionEditText" />
+
+    <TextView
+        android:id="@+id/newPriceTextView"
+        android:layout_width="120dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/new_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/newStockTextField"
+        android:layout_width="120dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/new_stock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceEditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

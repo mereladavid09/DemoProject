@@ -46,11 +46,14 @@ public class CreateUserActivity extends AppCompatActivity {
             String firstName = firstNameText.getText().toString();
             String lastName = lastNameText.getText().toString();
             int age = Integer.parseInt(ageText.getText().toString());
-            String gender = "female";
             String email = emailText.getText().toString();
             String phone = phoneNumberText.getText().toString();
             String username = userNameText.getText().toString();
+            String gender = "female";
 
+            if (maleButton.isSelected()){
+               gender = "male";
+            }
 
             User newUser = new User(firstName,lastName,age,gender,email,phone,username);
 
