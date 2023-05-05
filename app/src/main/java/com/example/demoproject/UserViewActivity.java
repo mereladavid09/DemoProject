@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import androidx.appcompat.app.AppCompatActivity;
+import json.JsonDeleteUser;
 import models.Product;
 import models.user.User;
 
@@ -41,7 +42,9 @@ public class UserViewActivity extends AppCompatActivity {
       userRemoveView.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
-
+            JsonDeleteUser jsonDeleteUser = new JsonDeleteUser();
+            jsonDeleteUser.execute(user);
+            finish();
          }
       });
 

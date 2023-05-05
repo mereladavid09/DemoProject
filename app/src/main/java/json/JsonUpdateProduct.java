@@ -32,7 +32,7 @@ public class JsonUpdateProduct extends AsyncTask<Product,Void,String> {
          RequestBody body = RequestBody.create(mediaType, jsonBody.toString());
 
          Request request = new Request.Builder()
-                 .url("https://dummyjson.com/products/1")
+                 .url("https://dummyjson.com/products/"+product.getId())
                  .put(body) // or .patch(body)
                  .addHeader("Content-Type", "application/json")
                  .build();
