@@ -51,9 +51,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private final String ALL_USERS = "https://dummyjson.com/users?limit=0";
     private final String ALL_CARTS = "https://dummyjson.com/carts";
     private final String ALL_PRODUCTS = "https://dummyjson.com/products?limit=0";
-
-    private final String ALL_CATEGORIES = "https://dummyjson.com/products/categories";
-
     private final String GET_PRODUCT_BY_CATEGORY ="https://dummyjson.com/products/category/";
 
     @Override

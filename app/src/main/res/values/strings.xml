@@ -3,5 +3,8 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="search_bar">Search Bar</string>
+    <string name="description">Description</string>
+    <string name="product_image">Product Image</string>
+    <string name="update_product">Update Product</string>
 
 </resources>

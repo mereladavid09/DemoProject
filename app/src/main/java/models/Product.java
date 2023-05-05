@@ -1,8 +1,9 @@
 package models;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Product {
+public class Product implements Serializable {
    private int id;
    private String title;
    private String description;
@@ -28,6 +29,7 @@ public class Product {
       this.thumbnail = thumbnail;
       this.images = images;
    }
+
 
    public int getId() {
       return id;
