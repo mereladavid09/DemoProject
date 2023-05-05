@@ -1,5 +1,6 @@
 package com.example.demoproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -51,7 +52,10 @@ public class UserViewActivity extends AppCompatActivity {
       userUpdateTextView.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
-
+            Intent intent = new Intent(view.getContext(),UpdateUserActivity.class);
+            intent.putExtra("USER_KEY",user);
+            startActivity(intent);
+            finish();
          }
       });
 
